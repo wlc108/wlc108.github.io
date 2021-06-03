@@ -6,7 +6,6 @@ let sections = [
   "address",
   "experience",
   "bots",
-  "authorized-users",
   "finished-section"
 ];
 
@@ -92,6 +91,11 @@ function handleButtonClick() {
   }
   if (sections[currentSection] === "experience") {
     if (validateExperience() === false) {
+      return;
+    }
+  }  
+  if (sections[currentSection] === "bots") {
+    if (validateRobotInfo() === false) {
       return;
     }
   }  
@@ -338,12 +342,126 @@ function validateExperience() {
   return isValid;
 }
 
+function validateAddress() {
+  let isValid = true
+  let street = getField("street-address")
+  let city = getField("city")
+  let state = getField("state")
+  let zip = getField("zip")
+  
+  if (street.value === null || street.value === "") {
+    isValid = false;
+    showAsError(street, true);
+  }
+  if (city.value === null || city.value === "") {
+    isValid = false;
+    showAsError(city, true);
+  }
+  if (state.value === null || state.value === "") {
+    isValid = false;
+    showAsError(state, true);
+  }
+  
+  // TODO: Validate it is an actual, valid zip
+  if (zip.value === null || zip.value === "" 
+  || zip.value.length !== 5) {
+    isValid = false;
+    showAsError(zip, true);
+  }
+
+  if (isValid) {
+    customer.street = street.value;
+    customer.city = city.value;
+    customer.state = state.value;
+    customer.zip = zip.value;
+    setCity(city.value);
+  }
+
+  return isValid;
+}
+
+// Validates Experience Level
+function validateRobotInfo() {
+  console.log("inside validateRobotInfo()");
+  let isValid = true;
+  let yearBuilt = getField("year-built");
+  let robotModel = getField("robot-model");
+  
+  let chkChildcare = getField("childcare");
+  let chkCleaning = getField("cleaning");
+  let chkCooking = getField("cooking");
+  let chkEducation = getField("education");
+  let chkHealthcare = getField("healthcare");
+  let chkSecurity = getField("security");
+
+  let hurtHumanYes = document.getElementById('hurtHumanYes');
+  let hurtHumanNo = document.getElementById('hurtHumanNo');
+  let inspNonChecked = document.getElementById('inspNonChecked');
+  let inspChecked = document.getElementById('inspChecked');
+  // Temporarily handling it this way
+  showAsError(hurtHumanYes.parentElement);
+  showAsError(inspChecked.parentElement);
+ 
+  // Just accepting anything for now
+  if (yearBuilt.value === null || yearBuilt.value === "") {
+    isValid = false;
+    showAsError(yearBuilt, true);
+  }
+  if (robotModel.value === null || robotModel.value === "") {
+    isValid = false;
+    showAsError(robotModel, true);
+  }
+
+
+  if (inspNonChecked.checked === false && inspChecked.checked === false) {
+    isValid = false;
+    showAsError(inspNonChecked.parentElement, true);
+  }
+
+  if (hurtHumanYes.checked === false && hurtHumanNo.checked === false) {
+    isValid = false;
+    showAsError(hurtHumanYes.parentElement, true);
+  }
+
+  let numChecked = 0;
+  if (chkChildcare.checked) {
+    numChecked++;
+  }
+  if (chkCleaning.checked) {
+    numChecked++;
+  }
+  if (chkCooking.checked) {
+    numChecked++;
+  }
+  if (chkEducation.checked) {
+    numChecked++;
+  }
+  if (chkHealthcare.checked) {
+    numChecked++;
+  }
+  if (chkSecurity.checked) {
+    numChecked++;
+  }
+
+  if (numChecked < 1) {
+    isValid = false;
+    showAsError(chkCleaning.parentElement, true); // Choosing any of them to grab the parent
+  }
+
+  if (isValid) {
+  }
+
+  return isValid;
+}
+
+
 
 function getField(fieldName) {
   let myField = document.getElementsByName(fieldName)[0];
   showAsError(myField, false); // Clear any potential error
   return myField
 }
+
 
 // This does not do any error checking. I am only using this for debugging.
 function setField(fieldName, value) {
@@ -364,16 +482,16 @@ function showAsError(element, errorStatus) {
 
 
 
-/// TEMPORARY DEBUGGING!!!!
-//changeSection(1);
-setField("first-name", "Bob");
-setField("last-name", "Bob");
-setField("birthday", "1990-01-05");
+// /// TEMPORARY DEBUGGING!!!!
+// changeSection(4);
+// setField("first-name", "Bob");
+// setField("last-name", "Bob");
+// setField("birthday", "1990-01-05");
 
-// setField("", "");
-setField("street-address", "101 Main St");
-setField("city", "San Diego");
-setField("state", "CA");
-setField("zip", "92106");
+// // setField("", "");
+// setField("street-address", "101 Main St");
+// setField("city", "San Diego");
+// setField("state", "CA");
+// setField("zip", "92106");
 
 

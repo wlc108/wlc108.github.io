@@ -61,6 +61,9 @@ section label {
     border: 1px solid white;
 } */
 
+select, input {
+    display: block;
+}
 
 
 .ask-section, .button-row, .intro-section {
@@ -90,7 +93,7 @@ section label {
     color: white;
 }
 
-section span.error {
+section span.error, span.error {
     color: rgb(200, 0, 0);
     display: block;
 }
@@ -125,7 +128,7 @@ section > fieldset > label, section#button-row {
     max-width: 25rem;
 }
 
-input[type="text"], input[type=date] {
+input[type="text"], input[type=date], select {
     font-size: 1rem;
     padding: .75rem;    
 }
@@ -134,9 +137,19 @@ input:required:valid {
     border-color: green;
     
 }
-input[type=text]:focus, input[type=date]:focus {
+input[type=text]:focus, input[type=date]:focus, select:focus {
     background-color: rgb(220, 220, 220);
+
 }
+
+.checkboxes {
+ padding-left: 25px;
+}
+
+.form-check-label {
+    font-size: 1.2rem;
+}
+
 
 .top-narrative {
     background-color: rgba(0, 79, 0, 0.7); 
