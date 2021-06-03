@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Robot Insurance from ZeroRisk</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&family=Khula&family=Paytone+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div id="main" class="row d-flex justify-content-center mx-auto">
+  <div class="col-12 col-sm-12 col-md-10 col-lg-10">
+    <div id="header-bar" class="px-2">
+      <div class="row align-items-left">
+        <span class="company-name-big text-center col-9 col-sm-9">
+          ZeroRisk Robot Insurance
+          <p class="company-slogan">"Nothing Can Go Wrong"</p>  
+        </span>    
+        <span class="col-3 col-sm-3">
+          <img id="header-img" src="https://freesvg.org/img/Thinking-v2.png">
+        </span>
+      </div>
+    </div> <!-- end header-bar -->
+
+    <ul class="breadcrumb" id="breadcrumb-list">
+      <li class="breadcrumb-item d-none"><span id="bread-personal-info">About You</span></li>
+      <li class="breadcrumb-item d-none"><span id="bread-address">Your Address</span></li>
+      <li class="breadcrumb-item d-none"><span id="bread-experience">Experience</span></li>
+      <li class="breadcrumb-item d-none"><span id="bread-bots">Robots</span></li>
+      <li class="breadcrumb-item d-none"><span id="bread-authorized-users">Authorized Users</span></li>
+      <li class="breadcrumb-item d-none"><span id="bread-finished-section">Quote</span></li>
+    </ul>
+    <div id="error-info" class="bg-danger text-black d-none">
+      Please fill in all required information below.
+    </div>
+    <div class="intro-section pb-3">
+      <p class="text-center h1">Robot Insurance</p>
+      <p class="h5">It doesn't sound fun, right? Whether you've owned a robot for years, or just brought home your first, you'll need insurance to
+      cover damage your robot covers or sustains during its duties. </p>
+      <p class="h5">ZeroRisk Robot Insurance is the premier provider of insurance for all of your robotic needs. Get a quote with us today. 
+      <p class="h5">To ensure an accurate price quote, we'll ask you questions about you and your robot(s). 
+        Please press "Begin Quote" below to tell us a little about yourself.</p>
+      <div class="bg-dark text-warning h5 p-2 m-3">
+        <p>== TESTING NOTE == </p>
+        <p>This was created purely in HTML/CSS/Javascript with no back-end.  I plan to create a back-end to make it a fully functional demo
+        sometime in the future.</p>
+        <p>Some basic validation of input is done, but there are many instances where it can still be broken by a user. This is not
+          what a final version would look like.  This is more of a proof-of-concept. Features may be fully or partially functional.
+        </p>
+
+      </div>
+    </div>
+
+    <!-- Begin Narrative Section.
+      This section will contain the various narratives for the pages, and will hide or show them
+      depending on which page you're on.
+    -->
+    <section class="top-narrative personal-info h3 text-center d-none">Let's get started. We'll begin by getting to know you. <br />
+      Can I please have your name and date of birth?</section>
+
+    <section class="top-narrative address h3 text-center d-none">
+        <p>Thanks, <span class="insertFirstName"></span>! </p>It's nice to meet you.  I need to know a little about 
+          where you live in order to provide a quote.
+    </section>
+
+    <section class="top-narrative experience h3 text-center d-none">
+      How do you like it there in <span class="insertCity"></span>? I have quite a few robot friends living around there. <br /> <br />
+      Speaking of robots, how long have you been using them?  Please count any time you were a fully authorized user, 
+      whether you owned the robot or not.
+    </section>
+    <section class="top-narrative bots h3 text-center d-none">
+      <p><span class="insertExperience"></span></p>
+      <p class="mb-0 pb-2">Now I need to ask some questions about the robots you own.</p>
+    </section>    
+    <!-- End Narrative Section -->
+
+    <!-- Begin Form 
+        Different sections will show depending on which page you're on. 
+    -->
+    <form name="quoteForm">
+      <section class="personal-info ask-section d-none">      
+          <div class="row"><div class="col-sm-12 col-md-8 col-lg-6 mx-auto">
+            <label>First Name<input type="text" class="form-control" name="first-name" required>
+              <span class="error-section">
+                Please provide your first name.
+              </span>
+            </label>
+            <label>Last Name<input type="text" class="form-control" name="last-name" required>
+              <span class="error-section">
+                Please provide your last name.
+              </span>
+            </label>
+            <label>Date of Birth<input type="date" class="form-control" name="birthday" required>
+              <span class="error-section">
+                Please provide your Date of Birth (e.g. 01/05/1950)
+              </span>
+            </label>
+          </div></div>
+      </section>
+      <section class="address ask-section d-none">
+        <div class="row"><div class="col-sm-12 col-md-8 col-lg-6 mx-auto">
+          <label class="">Street Address<input type="text" class="form-control" name="street-address" required>
+            <span class="error-section">
+              Please provide your Street Address.
+            </span>
+          </label>
+          <label>City<input type="text" class="form-control" name="city" required>
+            <span class="error-section">
+              Please provide your City.
+            </span>
+          </label>
+          <label>State<input type="text" class="form-control" name="state" required>
+            <span class="error-section">
+              Please provide your State
+            </span>
+          </label>
+          <label>Zip<input type="text" class="form-control" name="zip" required>
+            <span class="error-section">
+              Please provide your 5-Digit Zip Code (e.g. 92071)
+            </span>
+          </label>
+        </div></div>
+    </section>  
+    <section class="experience ask-section d-none">
+      <div class="row"><div class="col-sm-12 col-md-8 col-lg-6 mx-auto">
+        <label class="">Years of Robot Experience
+          <select name="years-experience">
+            <option value="">Please Select &#9662;</option>
+            <option value="0">0 Years</option>
+            <option value="1-2">1-2 Years</option>
+            <option value="3-5">3-5 Years</option>
+            <option value="6-11">6-11 Years</option>
+            <option value="12+">12+ Years</option>
+          </select>
+          <span class="error-section">
+            Please select your years of experience with robots.
+          </span>
+        </label>
+      </div></div>
+    </section>  
+      <div id="experience" class="ask-section d-none">
+        <fieldset>
+          <legend>Your Experience</legend>
+          <label>Years of Robot Ownership
+            <select>
+              <option value="">Please Select &#9662;</option>
+              <option value="0">0 Years</option>
+              <option value="1-2">1-2 Years</option>
+              <option value="3-5">3-5 Years</option>
+              <option value="6-11">6-11 Years</option>
+              <option value="12+">12+ Years</option>
+            </select>
+          </label>
+        </fieldset>
+      </div>
+      <div id="bots" class="ask-section d-none">
+        <fieldset>
+          <legend>Your Bots</legend>
+          <!-- <label><input type="" name="" required></label>        -->
+          <label>Year Built<input type="text" name="year-built" required></label>
+          <label>Robot Model
+            <select>
+              <option value="">Please Select &#9662;</option>
+              <option value="alphabrave">Alpha Brave</option>
+              <option value="cookobot">Cook-o-Bot 2000</option>
+              <option value="doctorgoodbot">Doctor Goodbot</option>
+              <option value="motherlylove">Motherly Love</option>
+              <option value="roboforce">RoboForce</option>
+              <option value="securanoid">Securanoid</option>
+            </select>
+          </label>
+          How is this robot used? Choose all that apply.
+          <label><input type="checkbox" name="childcare" value="yes">Childcare</label>
+          <label><input type="checkbox" name="cleaning" value="yes">Cleaning</label>
+          <label><input type="checkbox" name="cooking" value="yes">Cooking</label>
+          <label><input type="checkbox" name="cooking" value="yes">Education</label>
+          <label><input type="checkbox" name="healthcare" value="yes">Healthcare</label>
+          <label><input type="checkbox" name="security" value="yes">Security</label>
+          <!-- Add questions if they choose one.  Such as if Security, is it own prop?
+            if its Education, is it own kids?
+            Other properties?
+            If security, any weapons?
+          -->
+
+          <label>How many authorized users are configured on this robot, besides yourself? Remember to include spouses, children, and anyone who can give your robot commands. <input type="number" name="num-users" required></label>
+          
+          <!-- Add another page that says "You have indicated there are additional authorized users..."
+            Then allow them to input them, add them to a table, and then select which bots they use. 
+          -->
+
+          Has your robot ever hurt a human?
+          <label><input type="radio" value="yes" name="hurtHuman">Yes</label>
+          <label><input type="radio" value="no" name="hurtHuman">No</label>
+            <!-- IF YES, INSERT CODE HERE TO DISPLAY QUESTIONS! -->
+      
+            <label>
+            Is your robot inspected on an annual basis by a qualified roboticist?
+            <input type="radio" value="yes" name="annuallyInspected">Yes</label>
+            <input type="radio" value="no" name="annuallyInspected">No</label>
+          </label>
+        </fieldset>
+      </div>
+
+      <div id="authorized-users" class="ask-section d-none">
+        <fieldset>
+          <legend>Authorized Users</legend>
+            <p>You have indicated there is at least 1 user other than yourself with authorization to issue commands. 
+              Please list the user(s) below and indicate which robot(s) they can access.
+            </p>
+            <table>
+              <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+                <th>Authorization</th>
+              </tr>
+              <tr>
+                <td>John</td>
+                <td>Smith</td>
+                <td>23</td>
+                <td>
+                  <select class="select" multiple>
+                    <option value="1">Robot Name 1</option>
+                    <option value="2">Robot Name 2</option>
+                    <option value="3">Robot Name 3</option>
+                    <option value="4">Robot Name 4</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>Jane</td>
+                <td>Doe</td>
+                <td>47</td>
+                <td>
+                  <select class="select" multiple>
+                    <option value="1">Robot Name 1</option>
+                    <option value="2">Robot Name 2</option>
+                    <option value="3">Robot Name 3</option>
+                    <option value="4">Robot Name 4</option>
+                  </select>
+                </td>
+              </tr>            
+            </table>
+        </fieldset>
+      </div>
+      <div id="finished-section" class="d-none">
+        <h1>Thanks for getting a quote!</h1>
+        <p>Display Quote Here</p>
+        <p>Ask for Email or Phone# Here</p>
+        <p>If both entered, ask for preferred type of contact.</p>
+        <!-- <label>Phone<input type="tel" name="phone" placeholder="123-555-1234">
+        </label>
+        <label>Email<input type="email" name="email" placeholder="someone@gmail.com">
+        </label> -->
+
+      </div>
+      <section class="button-row text-center">
+        <button type="button" class="btn btn-info" id="next-button">Toggle</button>
+      </section>
+    </form>
+
+    <footer>
+      <div class="text-center text-light bg-dark align-bottom p-3">
+        © 2021 ZeroRisk Robot Insurance
+      </div>
+    </footer>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+
+</html>
