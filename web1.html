@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Page Title</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<style>
+  .my-row {
+    margin-bottom: 10px;
+  }
+.card {
+        margin: 0 auto; /* Added */
+        float: none; /* Added */
+        margin-bottom: 10px; /* Added */
+}
+ #policy-text-area {
+	height: 115px;
+}
+
+</style
+
+</head>
+<body>
+  <div class="container">
+<h1 class="text-center">HI!</h1>
+    <div class="row my-row justify-content-center">
+      <div class="col-sm-4 col-md-5">
+        <div class="card h-100">
+          <div class="card-body">
+        <label for="policy-numbers">Policy Numbers:</label>
+<!--        <input type="text" class="form-control" id="policy-numbers"> !-->
+        <textarea class="form-control" id="policy-text-area"></textarea>
+      </div>
+          </div>
+        </div>
+      <div class="col-sm-4 col-md-5">
+        <div class="card h-100">
+          <div class="card-body">
+		<label>Comparison Types:</label>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="checkbox1">
+          <label class="form-check-label" for="checkbox1">Checkbox 1</label>
+        </div>
+        <div class="form-check align-items-center">
+          <input type="checkbox" class="form-check-input" id="checkbox2">
+          <label class="form-check-label" for="checkbox2">Checkbox 2</label>
+        </div>
+        <div class="form-check align-items-center">
+          <input type="checkbox" class="form-check-input" id="checkbox3" disabled="true">
+          <label class="form-check-label" for="checkbox3">Checkbox 3</label>
+        </div>
+      </div>
+          </div>
+        </div>
+    </div>
+    <div class="row my-row justify-content-center">
+      <div class="col-sm-4 col-md-5">
+        <div class="card h-100">
+          <div class="card-body">
+            <label>Generate Output Files:</label>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="checkbox4">
+              <label class="form-check-label" for="checkbox4">Checkbox 4</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="checkbox5">
+              <label class="form-check-label" for="checkbox5">Checkbox 5</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4 col-md-5 my-row justify-content-center">
+        <div class="card h-100">
+          <div class="card-body text-center">
+        <button type="button" class="btn btn-primary btn-lg">Query</button>
+        <button type="button" class="btn btn-secondary btn-lg">Clear</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-8 col-md-10 my-row mx-auto">
+        <label for="results">Results:</label>
+        <textarea class="form-control" id="results" readonly></textarea>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
